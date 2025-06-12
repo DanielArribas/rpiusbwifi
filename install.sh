@@ -130,7 +130,7 @@ sudo iw wlan0 set power_save off
 
 # Function to create USB file
 create_usb_file() {
-    sudo dd bs=1440k if=/dev/zero of=piusb.bin count=1
+    sudo dd bs=1440k if=/dev/zero of=/piusb.bin count=1
     sudo mkdosfs /piusb.bin -F 16 -I
 }
 
