@@ -132,10 +132,6 @@ sudo iw wlan0 set power_save off
 create_usb_file() {
     sudo dd bs=1440k if=/dev/zero of=piusb.bin count=1
     sudo mkdosfs /piusb.bin -F 16 -I
-#    sudo mkdosfs /piusb.bin -F 16 -I
-
-#    sudo dd bs=1M if=/dev/zero of=/piusb.bin count=$1
-#    sudo mkdosfs /piusb.bin -F 32 -I
 }
 
 # Creating a USB File
@@ -146,7 +142,8 @@ while true; do
 
     if [ ! -f "/piusb.bin" ]; then
         if [ "$AVAILABLE_SPACE_MB" -ge "$REQUIRED_SPACE_MB" ]; then
-            create_usb_file $USB_FILE_SIZE_MB
+            sudo dd bs=1440k if=/dev/zero of=piusb.bin count=1
+            sudo mkdosfs /piusb.bin -F 16 -I
             break
         else
             echo "Not enough space available. Required: $REQUIRED_SPACE_MB MB, Available: $AVAILABLE_SPACE_MB MB"
