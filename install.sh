@@ -5,7 +5,7 @@ USB_FILE_SIZE_MB=2048 # Size of the USB file in Megabytes
 REQUIRED_SPACE_MB=$((USB_FILE_SIZE_MB + 1024)) # Required space including buffer
 MOUNT_FOLDER="/mnt/usb_share"
 USE_EXISTING_FOLDER="no"
-DRIVER_TO_USE="g_multi"
+DRIVER_TO_USE="g_mass_storage"
 if [[ "g_mass_storage" = "$1" ]]; then
     DRIVER_TO_USE="g_mass_storage"
 fi
